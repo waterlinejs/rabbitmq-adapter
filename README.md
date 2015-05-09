@@ -1,10 +1,11 @@
-# <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' /><img src="http://i.imgur.com/3j5klOp.png" height='43px' />
+#  <img src="http://i.imgur.com/3j5klOp.png" height='43px' /> + <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' />
+
 
 [![NPM version][npm-image]][npm-url]
 [![Build status][ci-image]][ci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
-AMQP Adapter for Sails and Waterline (supports RabbitMQ, ActiveMQ, et al).
+RabbitMQ Adapter for Sails and Waterline (implements [AMQP 0.9](https://www.rabbitmq.com/amqp-0-9-1-reference.html).
 Implements the Waterline [pubsub
 interface](https://github.com/balderdashy/sails-docs/blob/master/contributing/adapter-specification.md#subscribable-interface).
 
