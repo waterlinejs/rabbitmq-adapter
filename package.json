@@ -1,0 +1,35 @@
+{
+  "name": "waterline-sails-amqp",
+  "version": "0.10.0",
+  "description": "sails-amqp adapter for Sails / Waterline",
+  "main": "adapter.js",
+  "scripts": {
+    "test": "node test/integration/runner -R spec -b"
+  },
+  "repository": {"type":"git","url":"git://github.com/balderdashy/waterline-%s.git"},
+  "keywords": [
+    "sails-amqp",
+    "adapter",
+    "sails",
+    "waterline",
+    "sails.js",
+    "plugin"
+  ],
+  "author": "balderdashy",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {},
+  "devDependencies": {
+    "waterline-adapter-tests": "~0.10.0",
+    "mocha": "*",
+    "captains-log": "~0.11.0"
+  },
+  "waterlineAdapter": {
+    "type": "sails-amqp",
+    "interfaces": [
+      "semantic",
+      "queryable"
+    ],
+    "waterlineVersion": "~0.10.0"
+  }
+}
