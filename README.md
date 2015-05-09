@@ -1,4 +1,4 @@
-# <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' /> amqp adapter
+# <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' /><img src="http://i.imgur.com/3j5klOp.png" height='43px' />
 
 [![NPM version][npm-image]][npm-url]
 [![Build status][ci-image]][ci-url]
@@ -21,20 +21,36 @@ $ npm install sails-amqp --save
 module.exports.connections = {
   rabbitMQ: {
     adapter: 'sails-amqp',
-    url: 'amqp://localhost',
-    options: {
-      frameMax: 4096,   // max message size in bytes (default: 4kb)
-      channelMax: 0,    // max number of channels, 0=unlimited (default: 0)
-      heartbeat: 0,     // connection heartbeat period (default: 0)
-      locale: 'en_US',  // locale for error messages (default: 'en_US')
-      noDelay: false    // set TCP_NODELAY on underlying socket (default: false)
+    host: 'localhost',
+    port: 5672,
+    login: 'user123',
+    password: 'pass123',
+    connectionTimeout: 10000,    // timeout in ms
+
+    ssl: {
+      enabled: true,
+      // ...
+    },
+    clientProperties: {
+      defaultExchangeName: '',
+      reconnect: true,
+      // ...
+      //
+      // For additional options, see
+      // https://github.com/postwait/node-amqp#connection-options-and-url
     }
   }
 };
 
 ```
 
-### Usage
+## Usage
+
+### 1. Setup Exchanges
+
+AMQP "Exchanges" define the rules for routing messages to queues.
+
+
 
 ## License
 MIT
