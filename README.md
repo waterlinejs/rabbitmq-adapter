@@ -1,10 +1,12 @@
 # <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' /> amqp adapter
 
 [![NPM version][npm-image]][npm-url]
-[![Build status][travis-image]][travis-url]
+[![Build status][ci-image]][ci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
 AMQP Adapter for Sails and Waterline (supports RabbitMQ, ActiveMQ, et al).
+Implements the Waterline [pubsub
+interface](https://github.com/balderdashy/sails-docs/blob/master/contributing/adapter-specification.md#subscribable-interface).
 
 ## Install
 ```sh
@@ -41,7 +43,7 @@ MIT
 [sails-url]: https://sailsjs.org
 [npm-image]: https://img.shields.io/npm/v/sails-amqp.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/sails-amqp
-[travis-image]: https://img.shields.io/travis/tjwebb/sails-amqp.svg?style=flat-square
-[travis-url]: https://travis-ci.org/tjwebb/sails-amqp
+[ci-image]: https://img.shields.io/circleci/project/cnect/sails-amqp/master.svg?style=flat-square
+[ci-url]: https://circleci.com/gh/tjwebb/sails-amqp
 [daviddm-image]: http://img.shields.io/david/tjwebb/sails-amqp.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/tjwebb/sails-amqp
