@@ -1,21 +1,27 @@
 {
-  "name": "waterline-sails-amqp",
-  "version": "0.10.0",
-  "description": "sails-amqp adapter for Sails / Waterline",
+  "name": "sails-rabbitmq",
+  "version": "0.0.0",
+  "description": "sails-rabbitmq adapter for Sails / Waterline",
   "main": "adapter.js",
   "scripts": {
     "test": "node test/integration/runner -R spec -b"
   },
-  "repository": {"type":"git","url":"git://github.com/balderdashy/waterline-%s.git"},
+  "repository": {
+    "type":"git",
+    "url":"git://github.com/tjwebb/sails-rabbitmq.git"
+  },
   "keywords": [
-    "sails-amqp",
+    "sails-rabbitmq",
+    "rabbit",
+    "rabbitmq",
+    "amqp",
     "adapter",
     "sails",
     "waterline",
     "sails.js",
     "plugin"
   ],
-  "author": "balderdashy",
+  "author": "Travis Webb <me@traviswebb.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {},
@@ -25,11 +31,11 @@
     "captains-log": "~0.11.0"
   },
   "waterlineAdapter": {
-    "type": "sails-amqp",
+    "type": "sails-rabbitmq",
     "interfaces": [
       "semantic",
-      "queryable"
+      "pubsub"
     ],
-    "waterlineVersion": "~0.10.0"
+    "waterlineVersion": "^0.10"
   }
 }
