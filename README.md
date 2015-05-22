@@ -50,13 +50,13 @@ module.exports.connections = {
 
 ### 1. Setup Exchanges
 
-RabbitMQ [Exchanges](https://github.com/tjwebb/sails-amqp/wiki/AMQP:-Exchanges) define the rules for routing messages to queues. 
+RabbitMQ [Exchanges](https://github.com/tjwebb/sails-rabbitmq/wiki/AMQP:-Exchanges) define the rules for routing messages to queues. 
 
 ```js
-// config/amqp.js
+// config/rabbitmq.js
 
-// sails.config.amqp object is keyed by connection (defined in config/connections.js)
-module.exports.amqp = {
+// sails.config.rabbitmq object is keyed by connection (defined in config/connections.js)
+module.exports.rabbitmq = {
   rabbitCluster: {
     exchanges: {
       logExchange: {
@@ -103,9 +103,9 @@ MIT
 
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
-[npm-image]: https://img.shields.io/npm/v/sails-amqp.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/sails-amqp
-[ci-image]: https://img.shields.io/circleci/project/cnect/sails-amqp/master.svg?style=flat-square
-[ci-url]: https://circleci.com/gh/tjwebb/sails-amqp
-[daviddm-image]: http://img.shields.io/david/tjwebb/sails-amqp.svg?style=flat-square
-[daviddm-url]: https://david-dm.org/tjwebb/sails-amqp
+[npm-image]: https://img.shields.io/npm/v/sails-rabbitmq.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/sails-rabbitmq
+[ci-image]: https://img.shields.io/circleci/project/tjwebb/sails-rabbitmq/master.svg?style=flat-square
+[ci-url]: https://circleci.com/gh/tjwebb/sails-rabbitmq
+[daviddm-image]: http://img.shields.io/david/tjwebb/sails-rabbitmq.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/tjwebb/sails-rabbitmq
