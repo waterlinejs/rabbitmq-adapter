@@ -1,5 +1,7 @@
 #  <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' /> RabbitMQ Adapter
 
+## NOTE: This adapter is under development and is not complete.
+
 [![NPM version][npm-image]][npm-url]
 [![Build status][ci-image]][ci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
