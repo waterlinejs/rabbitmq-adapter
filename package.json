@@ -7,8 +7,8 @@
     "test": "node test/integration/runner -R spec -b"
   },
   "repository": {
-    "type":"git",
-    "url":"git://github.com/tjwebb/sails-rabbitmq.git"
+    "type": "git",
+    "url": "git://github.com/tjwebb/sails-rabbitmq.git"
   },
   "keywords": [
     "sails-rabbitmq",
@@ -24,7 +24,10 @@
   "author": "Travis Webb <me@traviswebb.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "dependencies": {},
+  "dependencies": {
+    "amqplib": "^0.3.2",
+    "lodash": "^3.9.1"
+  },
   "devDependencies": {
     "waterline-adapter-tests": "^0.10.0",
     "mocha": "*",
