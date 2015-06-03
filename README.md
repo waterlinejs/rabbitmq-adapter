@@ -9,6 +9,10 @@
 RabbitMQ Adapter for Sails and Waterline ([AMQP 0.9](https://www.rabbitmq.com/amqp-0-9-1-reference.html)).
 Implements the Waterline [pubsub
 interface](https://github.com/balderdashy/sails-docs/blob/master/contributing/adapter-specification.md#subscribable-interface).
+The RabbitMQ Adapter does not support persistence on its own, and should always
+be used with another adapter, such as
+[sails-mongo](https://github.com/balderdashy/sails-mongo) or
+[sails-postgres](https://github.com/balderdashy/sails-postgresql).
 
 <img src="http://i.imgur.com/3j5klOp.png" height='43px' />
 
@@ -19,85 +23,66 @@ $ npm install sails-rabbitmq --save
 
 ## Configure
 
+### 1. Setup Connection
+
 ```js
 // config/connections.js
-
 module.exports.connections = {
+  regularPostgres: {
+    // ...
+  },
   rabbitCluster: {
     adapter: 'sails-rabbitmq',
-    host: 'localhost',
-    port: 5672,
+    url: 'amqp://localhost:5672',
     login: 'user123',
-    password: 'pass123',
-    connectionTimeout: 10000,    // timeout in ms
-
-    ssl: {
-      enabled: true,
-      // ...
-    },
-    clientProperties: {
-      defaultExchangeName: '',
-      reconnect: true,
-      // ...
-      //
-      // For additional options, see
-      // https://github.com/postwait/node-amqp#connection-options-and-url
-    }
+    password: 'pass123'
   }
 };
 
 ```
 
-## Usage
+### 2. Setup Models
 
-### 1. Setup Exchanges
-
-RabbitMQ [Exchanges](https://github.com/tjwebb/sails-rabbitmq/wiki/AMQP:-Exchanges) define the rules for routing messages to queues. 
+For Models that you'd like to be able to publish and subscribe to, add the
+connection to the Model:
 
 ```js
-// config/rabbitmq.js
-
-// sails.config.rabbitmq object is keyed by connection (defined in config/connections.js)
-module.exports.rabbitmq = {
-  rabbitCluster: {
-    exchanges: {
-      logExchange: {
-        // for more exchange options, see   
-        // https://github.com/postwait/node-amqp#connectionexchangename-options-opencallback
-        type: 'direct',
-
-        // configure models that will use this exchange
-        models: {
-          LogEntry: {
-            // for more model (publish) options, see
-            // https://github.com/postwait/node-amqp#exchangepublishroutingkey-message-options-callback
-            
-            // routingKey is composed of a list of model attributes which determine how the 
-            // message will be routed
-            routingKey: [ 'severity' ],
-            
-            // the 'persist' object specifies how the message will be persisted once created.
-            // leave undefined if you do not want sails-rabbitmq to automatically persist objects
-            // in a separate datastore
-            persist: false
-          }
-        }
-      },
-      chatExchange: {
-        type: 'topic',
-        durable: true,
-        models: {
-          Message: {
-            routingKey: [ 'streamType', 'streamId', 'parentMessage' ],
-            persist: {
-              connection: 'pgDatabase'
-            }
-          }
-        }
-      }
-    }
+// api/models/Message
+module.exports = {
+  connections: [ 'rabbitCluster', 'regularPostgres' ],
+  attributes: {
+    title: 'string',
+    body: 'string'
+    // ...
   }
+}
+```
+
+## Usage
+
+### Publish
+
+Objects can be published to RabbitMQ by using the standard `create` method, and
+`/create` blueprint routes. The built-in persistence worker will persist the
+object using the specified connection (in this case, the `regularPostgres`
+connection).
+
+### Subscribe
+
+You can subscribe to Model "rooms" per usual. The pubsub messages will be routed
+through RabbitMQ.
+
+```js
+// api/controllers/MessageController.js
+module.exports = {
+  watch: function (req, res) {
+    if (req.isSocket) {
+      Message.watch(req.socket);
+    }
+  },
+  // ... etc
 };
+
 ```
 
 ## License
