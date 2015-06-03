@@ -1,1 +1,1 @@
-import { Adapter } from './lib/adapter'module.exports = new Adapter()
+import Adapter from './lib/adapter'export default Adapter

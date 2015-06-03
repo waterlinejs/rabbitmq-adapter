@@ -1,4 +1,0 @@
-describe('integration', function () {
-
-  // TODO 
-})
