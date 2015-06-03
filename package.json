@@ -5,7 +5,7 @@
   "main": "adapter.js",
   "scripts": {
     "install": "gulp build",
-    "test": "node test/integration/runner -R spec -b"
+    "test": "mocha --reporter spec --compilers js:babel/register"
   },
   "repository": {
     "type": "git",
@@ -26,21 +26,25 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "amqplib": "^0.3.2",
     "lodash": "^3.9.1",
     "rabbit.js": "^0.4.2"
   },
   "devDependencies": {
+    "babel": "^5.4.7",
     "captains-log": "^0.11.0",
     "gulp": "^3.8.11",
     "gulp-babel": "^5.1.0",
-    "mocha": "*",
+    "mocha": "^2.2.5",
     "waterline-adapter-tests": "^0.10.0"
+  },
+  "sails": {
+    "isHook": true
   },
   "waterlineAdapter": {
     "type": "sails-rabbitmq",
     "interfaces": [
-      "semantic"
+      "semantic",
+      "pubsub"
     ],
     "waterlineVersion": "^0.10"
   },
