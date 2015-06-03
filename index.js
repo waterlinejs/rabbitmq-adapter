@@ -1,1 +1,0 @@
-import Adapter from './lib/adapter'export default Adapter
