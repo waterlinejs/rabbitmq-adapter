@@ -1,1 +1,1 @@
-module.exports = require('./lib/adapter.js');
+import { Adapter } from './lib/adapter'module.exports = new Adapter()
