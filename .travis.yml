@@ -6,3 +6,6 @@ node_js:
 
 services:
   - rabbitmq
+
+notifications:
+  email: false
