@@ -33,9 +33,11 @@ module.exports.connections = {
   },
   rabbitCluster: {
     adapter: 'sails-rabbitmq',
-    url: 'amqp://localhost:5672',
-    login: 'user123',
-    password: 'pass123'
+
+    /**
+     * The url of your rabbitmq installation
+     */
+    url: 'amqp://localhost:5672'
   }
 };
 
