@@ -1,6 +1,6 @@
 const Waterline = require('waterline')
 
-global.Adapter = require('../../')
+global.Adapter = require('../../lib/adapter')
 
 const adapters = {
   'sails-disk': require('sails-disk'),
@@ -30,12 +30,16 @@ describe('integration', function () {
         stream: {
           model: 'stream'
         }
+
+      },
+      getRoutingKey (values) {
+        return values.stream
       }
     }))
     waterline.loadCollection(Waterline.Collection.extend({
       identity: 'stream',
       tableName: 'stream',
-      connection: [ 'rabbit', 'disk' ],
+      connection: [ 'disk' ],
       attributes: {
         name: 'string',
         messages: {
@@ -52,7 +56,9 @@ describe('integration', function () {
       function (err, ontology) {
         if (err) return done(err);
 
-        global.models = ontology.collections;
+        global.sails = {
+          models: ontology.collections
+        }
         done(err);
       }
     )

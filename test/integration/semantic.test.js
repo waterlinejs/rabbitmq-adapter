@@ -3,12 +3,12 @@ const assert = require('assert')
 describe('semantic', function () {
 
   it('should register models in the waterline ontology', function () {
-    assert(global.models.message);
-    assert(global.models.stream);
+    assert(sails.models.message);
+    assert(sails.models.stream);
   })
 
   it('should create a model in the typical manner', function (done) {
-    global.models.message.create({
+    sails.models.message.create({
         title: 'hello',
         content: 'world'
       })

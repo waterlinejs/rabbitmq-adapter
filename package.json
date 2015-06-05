@@ -2,7 +2,7 @@
   "name": "sails-rabbitmq",
   "version": "0.0.0",
   "description": "sails-rabbitmq adapter for Sails / Waterline",
-  "main": "lib/adapter.js",
+  "main": "dist/adapter.js",
   "scripts": {
     "install": "gulp build",
     "test": "mocha --reporter spec --compilers js:babel/register"
@@ -26,7 +26,7 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "lodash": "^3.9.1",
+    "lodash": "^3.9.3",
     "rabbit.js": "^0.4.2"
   },
   "devDependencies": {
