@@ -32,7 +32,7 @@ describe('integration', function () {
         }
 
       },
-      getRoutingKey (values) {
+      routingKey (values) {
         return values.stream
       }
     }))
