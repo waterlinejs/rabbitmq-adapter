@@ -99,5 +99,5 @@ MIT
 [ci-url]: https://circleci.com/gh/tjwebb/sails-rabbitmq
 [daviddm-image]: http://img.shields.io/david/tjwebb/sails-rabbitmq.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/tjwebb/sails-rabbitmq
-[codeclimate-image]: https://img.shields.io/codeclimate/github/tjwebb/sails-rabbitmq.svg
+[codeclimate-image]: https://img.shields.io/codeclimate/github/tjwebb/sails-rabbitmq.svg?style=flat-square
 [codeclimate-url]: https://codeclimate.com/github/tjwebb/sails-rabbitmq
