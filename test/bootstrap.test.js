@@ -1,6 +1,6 @@
 const Waterline = require('waterline')
 
-global.Adapter = require('../../lib/adapter')
+global.Adapter = require('../lib/adapter')
 
 const adapters = {
   'sails-disk': require('sails-disk'),
@@ -16,7 +16,6 @@ const connections = {
   }
 }
 
-describe('integration', function () {
   before(function (done) {
     let waterline = new Waterline();
 
@@ -56,14 +55,9 @@ describe('integration', function () {
       function (err, ontology) {
         if (err) return done(err);
 
-        global.sails = {
-          models: ontology.collections
-        }
+        global.models = ontology.collections
         done(err);
       }
     )
   })
 
-  require('./semantic.test')
-  require('./pubsub.test')
-})
