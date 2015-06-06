@@ -5,6 +5,7 @@
 [![NPM version][npm-image]][npm-url]
 [![Build status][ci-image]][ci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
+[![Code Climate][codeclimate-image]][codeclimate-url]
 
 RabbitMQ Adapter for Sails and Waterline ([AMQP 0.9](https://www.rabbitmq.com/amqp-0-9-1-reference.html)).
 Implements the Waterline [pubsub
@@ -98,3 +99,5 @@ MIT
 [ci-url]: https://circleci.com/gh/tjwebb/sails-rabbitmq
 [daviddm-image]: http://img.shields.io/david/tjwebb/sails-rabbitmq.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/tjwebb/sails-rabbitmq
+[codeclimate-image]: https://img.shields.io/codeclimate/github/tjwebb/sails-rabbitmq.svg
+[codeclimate-url]: https://codeclimate.com/github/tjwebb/sails-rabbitmq
