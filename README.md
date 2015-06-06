@@ -38,37 +38,49 @@ module.exports.connections = {
     /**
      * The url of your rabbitmq installation
      */
-    url: 'amqp://localhost:5672'
+    url: 'amqp://localhost:5672',
+
+    /**
+     * Define how persistence is managed. 'true' will subscribe to all queues
+     * and persist models that are published as messages. 'false' will do
+     * nothing.
+     */
+    persistence: true
   }
 };
-
 ```
 
 ### 2. Setup Models
 
 For Models that you'd like to be able to publish and subscribe to, add the
-connection to the Model:
+connection to the Model, and define a `routingKey` function.
 
 ```js
 // api/models/Message
 module.exports = {
-  connections: [ 'rabbitCluster', 'regularPostgres' ],
+  connection: [ 'rabbitCluster', 'regularPostgres' ],
+  routingKey: [ 'stream', 'parentMessage' ],
   attributes: {
     title: 'string',
-    body: 'string'
+    body: 'string',
+    stream: {
+      model: 'stream'
+    },
+    parentMessage: {
+      model: 'message'
+    }
     // ...
   }
-}
+};
 ```
 
 ## Usage
 
 ### Publish
 
-Objects can be published to RabbitMQ by using the standard `create` method, and
-`/create` blueprint routes. The built-in persistence worker will persist the
-object using the specified connection (in this case, the `regularPostgres`
-connection).
+Objects can be published to RabbitMQ by using the `publish` method. The built-in
+persistence worker will persist the object using the specified connection
+(in this case, the `regularPostgres` connection).
 
 ### Subscribe
 

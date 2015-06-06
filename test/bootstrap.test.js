@@ -23,16 +23,13 @@ before((done) => {
     identity: 'message',
     tableName: 'message',
     connection: [ 'rabbit', 'disk' ],
+    routingKey: [ 'stream' ],
     attributes: {
       title: 'string',
       content: 'string',
       stream: {
         model: 'stream'
       }
-
-    },
-    routingKey (values) {
-      return values.stream
     }
   }))
   waterline.loadCollection(Waterline.Collection.extend({
