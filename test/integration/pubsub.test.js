@@ -10,6 +10,19 @@ describe('pubsub', () => {
     })
   })
 
+  describe('#getRoutingKey', () => {
+    it('should generate correct routingKey for model', () => {
+      let message = {
+        title: 'hello',
+        stream: 'stream1'
+      }
+      let routingKey = global.Adapter.getRoutingKey('rabbit', 'message', message)
+
+      assert.equal(routingKey, 'stream1')
+
+    })
+  })
+
   describe('#publish', () => {
     it('should subscribe to Message without error', (done) => {
       global.models.message.getSubscribeSocket().then(socket => {
