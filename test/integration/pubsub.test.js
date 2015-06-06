@@ -19,7 +19,6 @@ describe('pubsub', () => {
       let routingKey = global.Adapter.getRoutingKey('rabbit', 'message', message)
 
       assert.equal(routingKey, 'stream1')
-
     })
   })
 
@@ -51,21 +50,21 @@ describe('pubsub', () => {
         done()
       }, 1500)
 
-      models.message.getSubscribeSocket({ where: { stream: 'otherstream' } }).then(socket => {
-        socket.on('data', data => {
-          assert(data)
-          socket.close()
-          done('should not have received a message')
-        })
-        models.message.publish({
+      models.message.getSubscribeSocket({ where: { stream: 'otherstream' } })
+        .then(socket => {
+          socket.on('data', data => {
+            assert(data)
+            socket.close()
+            done('should not have received a message')
+          })
+          return models.message.publish({
             title: 'publish test',
             content: 'hello world',
             stream: 'mystream'
           })
-          .then(socket => {
-            assert(socket)
-          })
-      })
+        })
+        .then(assert)
+        .catch(done)
     })
   })
 })
