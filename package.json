@@ -4,7 +4,7 @@
   "description": "sails-rabbitmq adapter for Sails / Waterline",
   "main": "dist/adapter.js",
   "scripts": {
-    "install": "gulp build",
+    "prepublish": "gulp build",
     "test": "mocha --recursive --reporter spec --compilers js:babel/register"
   },
   "repository": {
