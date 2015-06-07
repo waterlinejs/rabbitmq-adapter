@@ -1,18 +1,20 @@
 const Waterline = require('waterline')
+const util = require('util')
 
 global.Adapter = require('../lib/adapter')
 
 const adapters = {
-  'sails-disk': require('sails-disk'),
+  'sails-memory': require('sails-disk'),
   'sails-rabbitmq': global.Adapter,
 }
 
 const connections = {
   rabbit: {
-    adapter: 'sails-rabbitmq'
+    adapter: 'sails-rabbitmq',
+    persistence: true
   },
   disk: {
-    adapter: 'sails-disk'
+    adapter: 'sails-memory'
   }
 }
 
@@ -50,7 +52,10 @@ before((done) => {
       connections: connections
     },
     function (err, ontology) {
-      if (err) return done(err);
+      if (err) {
+        console.trace(err)
+        return done(new Error(err))
+      }
 
       global.models = ontology.collections
       done(err);
