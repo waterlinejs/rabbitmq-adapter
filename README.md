@@ -2,6 +2,8 @@
 
 ## NOTE: This adapter is under development and is not complete.
 
+
+
 [![NPM version][npm-image]][npm-url]
 [![Build status][ci-image]][ci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
@@ -102,6 +104,10 @@ module.exports = {
 
 ## License
 MIT
+
+## Contributors
+
+#### This module is developed and  maintained in partnership between [Balderdash](http://balderdash.co/) and the [Michigan Community College Association](http://www.mcca.org/)
 
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
