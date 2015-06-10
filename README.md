@@ -1,9 +1,5 @@
 #  <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' /> RabbitMQ Adapter
 
-## NOTE: This adapter is under development and is not complete.
-
-
-
 [![NPM version][npm-image]][npm-url]
 [![Build status][ci-image]][ci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
@@ -45,7 +41,8 @@ module.exports.connections = {
     /**
      * Define how persistence is managed. 'true' will subscribe to all queues
      * and persist models that are published as messages. 'false' will do
-     * nothing.
+     * nothing. This lets you turn off the persistence worker feature on the
+     * Sails.js web server, and enable it in separate worker processes.
      */
     persistence: true
   }
@@ -55,7 +52,7 @@ module.exports.connections = {
 ### 2. Setup Models
 
 For Models that you'd like to be able to publish and subscribe to, add the
-connection to the Model, and define a `routingKey` function.
+`sails-rabbitmq` connection to the relevant Models, and define a `routingKey`.
 
 ```js
 // api/models/Message
@@ -76,30 +73,78 @@ module.exports = {
 };
 ```
 
-## Usage
+#### `routingKey`
 
-### Publish
-
-Objects can be published to RabbitMQ by using the `publish` method. The built-in
-persistence worker will persist the object using the specified connection
-(in this case, the `regularPostgres` connection).
-
-### Subscribe
-
-You can subscribe to Model "rooms" per usual. The pubsub messages will be routed
-through RabbitMQ.
+The `routingKey` determines how messages are routed to RabbitMQ queues. Consider
+an example `Message` object from above:
 
 ```js
-// api/controllers/MessageController.js
-module.exports = {
-  watch: function (req, res) {
-    if (req.isSocket) {
-      Message.watch(req.socket);
-    }
-  },
-  // ... etc
-};
+{
+  title: 'yo dawg',
+  body: 'I heard you like messages',
+  stream: 'random',
+  parentMessage: 1234
+}
+```
 
+The `[ 'stream', 'parentMessage' ]` `routingKey` would generate a RabbitMQ
+Routing Key with the value `random.1234`.
+
+## Usage
+
+### `.create(values, callback)
+### `.update(criteria, values, callback)
+
+The `.create()` and `.update()` methods can be called per usual on
+RabbitMQ-enabled models. RabbitMQ dispatches a message to an available
+Persistence Worker, wherein the object is created or updated by the
+persistence connection (e.g. `regularPostgres` above), and returned to the
+provided callback (or Promise).
+
+## Low-level API
+
+"Low-level" is a nice way of saying "only use these methods if you know what you're
+doing".
+
+### `Model.getSubscribeSocket(options)`
+
+Open a rabbit.js [`SUBSCRIBE`](https://github.com/squaremo/rabbit.js/blob/master/lib/sockets.js#L55)
+socket to your favorite model.
+
+| @param | @description | required |
+|:---|:---|:---|
+| options.where | search criteria | no |
+
+#### Example
+
+```js
+Message.getSubscribeSocket({ where: { stream: 'myStream' } })
+  .then(function (socket) {
+    socket.on('data', function (data) {
+      var message = JSON.parse(data);
+      // see, I told you it was "low-level"
+      
+      // ...
+    });
+  });
+```
+
+### `Model.getWorkerSocket(options)`
+
+| @param | @description | required |
+|:---|:---|:---|
+| options.name | worker name (must match that of some 'PUSH' socket) | yes |
+
+```js
+Message.getWorkerSocket({ name: 'encryptionWorker' })
+  .then(function (socket) {
+    socket.on('data', function (data) {
+      var message = JSON.parse(data);
+      // ...
+
+      socket.ack()
+    });
+  });
 ```
 
 ## License
