@@ -92,8 +92,8 @@ Routing Key with the value `random.1234`.
 
 ## Usage
 
-### `.create(values, callback)
-### `.update(criteria, values, callback)
+### `.create(values, callback)`
+### `.update(criteria, values, callback)`
 
 The `.create()` and `.update()` methods can be called per usual on
 RabbitMQ-enabled models. RabbitMQ dispatches a message to an available
