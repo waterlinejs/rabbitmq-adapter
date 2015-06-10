@@ -151,8 +151,10 @@ Message.getWorkerSocket({ name: 'encryptionWorker' })
 MIT
 
 ## Maintainers
-- [<img src='http://i.imgur.com/zM0ynQk.jpg' height='24px'>](http://balderdash.co)
 - [Michigan Community College Association](http://www.mcca.org/)
+- [<img src='http://i.imgur.com/zM0ynQk.jpg' height='32px'>](http://balderdash.co)
+
+<img src='http://i.imgur.com/NsAdNdJ.png'>
 
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
