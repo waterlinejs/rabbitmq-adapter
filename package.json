@@ -5,7 +5,7 @@
   "main": "dist/adapter.js",
   "scripts": {
     "prepublish": "gulp build",
-    "test": "mocha --recursive --reporter spec --compilers js:babel/register"
+    "test": "mocha --recursive --reporter spec --compilers js:babel/register --timeout 500"
   },
   "repository": {
     "type": "git",

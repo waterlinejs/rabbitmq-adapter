@@ -45,10 +45,10 @@ describe('pubsub', () => {
           })
       })
     })
-    it('should not receive published Message with where clause mismatch', (done) => {
+    it('should not receive published Message with where clause mismatch', done => {
       setTimeout(() => {
         done()
-      }, 1500)
+      }, 400)
 
       models.message.getSubscribeSocket({ where: { stream: 'otherstream' } })
         .then(socket => {

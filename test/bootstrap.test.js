@@ -4,7 +4,7 @@ const util = require('util')
 global.Adapter = require('../lib/adapter')
 
 const adapters = {
-  'sails-memory': require('sails-disk'),
+  'sails-memory': require('sails-memory'),
   'sails-rabbitmq': global.Adapter,
 }
 
@@ -13,7 +13,7 @@ const connections = {
     adapter: 'sails-rabbitmq',
     persistence: true
   },
-  disk: {
+  persistence: {
     adapter: 'sails-memory'
   }
 }
@@ -23,8 +23,9 @@ before((done) => {
 
   waterline.loadCollection(Waterline.Collection.extend({
     identity: 'message',
+    autoPK: true,
     tableName: 'message',
-    connection: [ 'rabbit', 'disk' ],
+    connection: [ 'rabbit', 'persistence' ],
     routingKey: [ 'stream' ],
     attributes: {
       title: 'string',
@@ -36,8 +37,9 @@ before((done) => {
   }))
   waterline.loadCollection(Waterline.Collection.extend({
     identity: 'stream',
+    autoPK: true,
     tableName: 'stream',
-    connection: [ 'disk' ],
+    connection: [ 'persistence' ],
     attributes: {
       name: 'string',
       messages: {
