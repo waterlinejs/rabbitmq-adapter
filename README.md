@@ -151,8 +151,8 @@ MIT
 
 ## Maintainers
 
-|:---|:---|
-| [<img src='http://i.imgur.com/zM0ynQk.jpg' height='32px'>](http://balderdash.co) | [<img src='http://i.imgur.com/mfpocUM.png' height='32px'>](https://www.micollegesonline.org) |
+##### [<img src='http://i.imgur.com/mfpocUM.png' height='72px'>](https://www.micollegesonline.org)
+##### [<img src='http://i.imgur.com/zM0ynQk.jpg' height='33px'>](http://balderdash.co)
 
 <img src='http://i.imgur.com/NsAdNdJ.png'>
 
