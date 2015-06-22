@@ -11,9 +11,8 @@ interface](https://github.com/balderdashy/sails-docs/blob/master/contributing/ad
 The RabbitMQ Adapter does not support persistence on its own, and should always
 be used with another adapter, such as
 [sails-mongo](https://github.com/balderdashy/sails-mongo) or
-[sails-postgres](https://github.com/balderdashy/sails-postgresql).
-
-<img src="http://i.imgur.com/3j5klOp.png" height='43px' />
+[sails-postgresql](https://github.com/balderdashy/sails-postgresql). This module is
+maintained in collaboration with [Michigan Community College Association](https://www.micollegesonline.org/).
 
 ## Install
 ```sh
@@ -152,12 +151,13 @@ MIT
 
 ## Maintainers
 
-| [Michigan Community College Association](http://www.mcca.org/) |
-|:---|
-| [<img src='http://i.imgur.com/zM0ynQk.jpg' height='26px'>](http://balderdash.co) |
+|:---|:---|
+| [<img src='http://i.imgur.com/zM0ynQk.jpg' height='32px'>](http://balderdash.co) | [<img src='http://i.imgur.com/mfpocUM.png' height='32px'>](https://www.micollegesonline.org) |
 
 <img src='http://i.imgur.com/NsAdNdJ.png'>
 
+[mco-url]: https://www.micollegesonline.org
+[mco-image]: http://i.imgur.com/mfpocUM.png
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
 [npm-image]: https://img.shields.io/npm/v/sails-rabbitmq.svg?style=flat-square
