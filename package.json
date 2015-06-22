@@ -39,9 +39,6 @@
     "sails-memory": "^0.10.4",
     "waterline": "^0.10.23"
   },
-  "files": [
-    "dist"
-  ],
   "waterlineAdapter": {
     "type": "sails-rabbitmq",
     "interfaces": [
