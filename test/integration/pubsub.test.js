@@ -1,6 +1,5 @@
 const assert = require('assert')
 const _ = require('lodash')
-const rabbit = require('rabbit.js')
 
 describe('pubsub', () => {
 
