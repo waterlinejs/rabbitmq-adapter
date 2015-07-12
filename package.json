@@ -1,6 +1,6 @@
 {
   "name": "sails-rabbitmq",
-  "version": "0.11.6",
+  "version": "0.12.0",
   "description": "sails-rabbitmq adapter for Sails / Waterline",
   "main": "dist/adapter.js",
   "scripts": {
