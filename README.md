@@ -149,7 +149,7 @@ Message.getWorkerSocket({ name: 'encryptionWorker' })
 ## License
 MIT
 
-## Maintainers
+## Maintained By
 
 ##### [<img src='http://i.imgur.com/mfpocUM.png' height='72px'>](https://www.micollegesonline.org)
 ##### [<img src='http://i.imgur.com/zM0ynQk.jpg' height='33px'>](http://balderdash.co)
