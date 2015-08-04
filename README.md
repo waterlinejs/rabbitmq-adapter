@@ -89,6 +89,20 @@ an example `Message` object from above:
 The `[ 'stream', 'parentMessage' ]` `routingKey` would generate a RabbitMQ
 Routing Key with the value `random.1234`.
 
+
+### 3. Set Primary Key Format
+
+The primary key datatype for the persistence store defaults to `'integer'`.
+You may need to change this, for example mongodb uses strings for their primary key.
+This is optional depending upon your persistence store.
+
+```js
+// config/rabbitmq.js
+module.exports.rabbitmq = {
+    pkFormat: 'string'
+};
+```
+
 ## Usage
 
 ### `.create(values, callback)`
