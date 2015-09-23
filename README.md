@@ -176,9 +176,9 @@ MIT
 [sails-url]: https://sailsjs.org
 [npm-image]: https://img.shields.io/npm/v/sails-rabbitmq.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/sails-rabbitmq
-[ci-image]: https://img.shields.io/circleci/project/tjwebb/sails-rabbitmq/master.svg?style=flat-square
-[ci-url]: https://circleci.com/gh/tjwebb/sails-rabbitmq
-[daviddm-image]: http://img.shields.io/david/tjwebb/sails-rabbitmq.svg?style=flat-square
-[daviddm-url]: https://david-dm.org/tjwebb/sails-rabbitmq
-[codeclimate-image]: https://img.shields.io/codeclimate/github/tjwebb/sails-rabbitmq.svg?style=flat-square
-[codeclimate-url]: https://codeclimate.com/github/tjwebb/sails-rabbitmq
+[ci-image]: https://img.shields.io/circleci/project/waterlinejs/sails-rabbitmq/master.svg?style=flat-square
+[ci-url]: https://circleci.com/gh/waterlinejs/sails-rabbitmq
+[daviddm-image]: http://img.shields.io/david/waterlinejs/sails-rabbitmq.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/waterlinejs/sails-rabbitmq
+[codeclimate-image]: https://img.shields.io/codeclimate/github/waterlinejs/sails-rabbitmq.svg?style=flat-square
+[codeclimate-url]: https://codeclimate.com/github/waterlinejs/sails-rabbitmq
