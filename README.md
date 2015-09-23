@@ -16,7 +16,7 @@ maintained in collaboration with [Michigan Community College Association](https:
 
 ## Install
 ```sh
-$ npm install sails-rabbitmq --save
+$ npm install waterline-rabbitmq --save
 ```
 
 ## Configure
@@ -30,7 +30,7 @@ module.exports.connections = {
     // ...
   },
   rabbitCluster: {
-    adapter: 'sails-rabbitmq',
+    adapter: 'waterline-rabbitmq',
 
     /**
      * The url of your rabbitmq installation
@@ -51,7 +51,7 @@ module.exports.connections = {
 ### 2. Setup Models
 
 For Models that you'd like to be able to publish and subscribe to, add the
-`sails-rabbitmq` connection to the relevant Models, and define a `routingKey`.
+`waterline-rabbitmq` connection to the relevant Models, and define a `routingKey`.
 
 ```js
 // api/models/Message
@@ -135,7 +135,7 @@ Message.getSubscribeSocket({ where: { stream: 'myStream' } })
   .then(function (socket) {
     socket.on('data', function (data) {
       var message = JSON.parse(data);
-      // see, I told you it was "low-level"
+      // see, I told you it was low-level
       
       // ...
     });
@@ -166,7 +166,10 @@ MIT
 ## Maintained By
 
 ##### [<img src='http://i.imgur.com/mfpocUM.png' height='72px'>](https://www.micollegesonline.org)
+- [Max Stahl](https://github.com/mcodev1)
 ##### [<img src='http://i.imgur.com/zM0ynQk.jpg' height='33px'>](http://balderdash.co)
+- [Travis Webb](https://github.com/tjwebb)
+- [Ryan Quinn](https://github.com/ryanwilliamquinn)
 
 <img src='http://i.imgur.com/NsAdNdJ.png'>
 
@@ -174,11 +177,11 @@ MIT
 [mco-image]: http://i.imgur.com/mfpocUM.png
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
-[npm-image]: https://img.shields.io/npm/v/sails-rabbitmq.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/sails-rabbitmq
-[ci-image]: https://img.shields.io/circleci/project/waterlinejs/sails-rabbitmq/master.svg?style=flat-square
-[ci-url]: https://circleci.com/gh/waterlinejs/sails-rabbitmq
-[daviddm-image]: http://img.shields.io/david/waterlinejs/sails-rabbitmq.svg?style=flat-square
-[daviddm-url]: https://david-dm.org/waterlinejs/sails-rabbitmq
-[codeclimate-image]: https://img.shields.io/codeclimate/github/waterlinejs/sails-rabbitmq.svg?style=flat-square
-[codeclimate-url]: https://codeclimate.com/github/waterlinejs/sails-rabbitmq
+[npm-image]: https://img.shields.io/npm/v/waterline-rabbitmq.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/waterline-rabbitmq
+[ci-image]: https://img.shields.io/circleci/project/waterlinejs/rabbitmq-adapter/master.svg?style=flat-square
+[ci-url]: https://circleci.com/gh/waterlinejs/rabbitmq-adapter
+[daviddm-image]: http://img.shields.io/david/waterlinejs/rabbitmq-adapter.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/waterlinejs/rabbitmq-adapter
+[codeclimate-image]: https://img.shields.io/codeclimate/github/waterlinejs/rabbitmq-adapter.svg?style=flat-square
+[codeclimate-url]: https://codeclimate.com/github/waterlinejs/rabbitmq-adapter
