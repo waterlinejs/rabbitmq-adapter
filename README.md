@@ -168,7 +168,7 @@ MIT
 ##### [<img src='http://i.imgur.com/mfpocUM.png' height='72px'>](https://www.micollegesonline.org)
 - [Max Stahl](https://github.com/mcodev1)
 
-##### [<img src='http://i.imgur.com/zM0ynQk.jpg' height='33px'>](http://balderdash.co)
+##### [<img src='http://i.imgur.com/zM0ynQk.jpg' height='33px'>](http://balderdash.io)
 - [Travis Webb](https://github.com/tjwebb)
 - [Ryan Quinn](https://github.com/ryanwilliamquinn)
 
