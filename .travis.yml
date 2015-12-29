@@ -2,6 +2,8 @@ language: node_js
 
 node_js:
   - '0.12'
+  - 4
+  - 'stable'
 
 services:
   - rabbitmq
@@ -18,3 +20,4 @@ deploy:
     tags: true
     repo: tjwebb/sails-rabbitmq
     all_branches: true
+    node: 'stable'
