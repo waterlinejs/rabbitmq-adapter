@@ -18,6 +18,6 @@ deploy:
     secure: ia73vVV0ipTR78KndrDc/55Et0MrCBNmDzsXb9lsV3+JUelsus4XoIs0WMnE7Gqtto5DjvzONAp0jbMOaT9dPPk/M2rWP/yl73Oaf0908U7dEWWNKDkDWC/36C7vjOQcBRqExvjcy4ziQaamHEjm64hqgh19WfuE1HU7VOvlYhpbjhAZYqJ792K3YnRjsqTPOy9uXLP+A43N3Wy9Mhy0idCYe40slbOD5vPp/oZ1RyqUfzDrO21YuD0KzO2vs2D1vJl55DEGJW1bQLRoXpEUVvjwIBHcUOVzMmGHou9LHMd1xhSQMYE4RrqC6ujmxdfVOpzmEUO0PyiUTueqY9UN2yXSE4M9+/rPEeX9/ANr5FUF89iFX8V3vM7kHj1nnoMsP+XIJGS3J0SDn4s7ONeOz9daRZHTPj57lvHgDOgUvWL2IY3KsJ7Xr9cwxnNI1kPwFJMprfhbWZ1PBuDMThxa7rdMv1dGscrcBUeuW/EnTzzadNY6d2c2QSh0ol7UCOXJCqiXwglV+YiM9j9sZSNC+yT+m/pe2ow/aU9Kh8tYepu9H7d4bAV3ovnXUG/oYFCO3O1zYVAymhDaVquLBMstQozAbnyFUnvvrZb93Hd9Y5m/JEANnZn9bVh6AwNwUxaeKjb4cS2ovxzWOWDyBF2djyCjFHplgc2F9uzzjkTFsPA=
   on:
     tags: true
-    repo: tjwebb/sails-rabbitmq
+    repo: waterlinejs/rabbitmq-adapter
     all_branches: true
     node: 'stable'
